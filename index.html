@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8c96a" />
+    <meta name="description" content="接住松鼠丟下的蘋果，避開刺刺栗子的可愛森林小遊戲。" />
+    <title>松鼠果園大作戰</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">FOREST CATCH GAME</p>
+          <h1>松鼠果園<br /><span>大作戰！</span></h1>
+        </div>
+        <p class="hero-copy">接住香甜蘋果，<br />小心刺刺栗子！</p>
+      </header>
+
+      <section class="game-card" aria-label="松鼠果園大作戰遊戲區">
+        <div class="scoreboard">
+          <div class="stat score-stat">
+            <span class="stat-label">SCORE</span>
+            <strong id="score" aria-label="分數 0">0</strong>
+          </div>
+          <div class="leaf-divider" aria-hidden="true">❧</div>
+          <div class="stat life-stat">
+            <span class="stat-label">LIFE</span>
+            <div id="hearts" class="hearts" aria-label="剩餘 3 顆心">
+              <span>♥</span><span>♥</span><span>♥</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="960" height="600" aria-label="森林果園遊戲畫面"></canvas>
+          <div id="startOverlay" class="overlay is-visible">
+            <div class="overlay-card start-card">
+              <div class="mini-basket" aria-hidden="true">🍎</div>
+              <p class="overlay-kicker">準備好了嗎？</p>
+              <h2>接住蘋果！</h2>
+              <p>左右移動，把紅通通的蘋果接進籃子。<br />看到刺刺栗子要快躲開喔！</p>
+              <button id="startButton" class="primary-button" type="button">開始遊戲 <span aria-hidden="true">▶</span></button>
+              <div class="key-hint"><kbd>←</kbd><kbd>→</kbd><span>或</span><kbd>A</kbd><kbd>D</kbd><span>移動</span></div>
+            </div>
+          </div>
+          <div id="gameOverOverlay" class="overlay" aria-hidden="true">
+            <div class="overlay-card gameover-card">
+              <div class="squirrel-badge" aria-hidden="true">🐿️</div>
+              <p class="overlay-kicker">今天的收成</p>
+              <h2>遊戲結束</h2>
+              <p class="final-score">你接到了 <strong id="finalScore">0</strong> 顆蘋果！</p>
+              <p id="resultMessage" class="result-message">再試一次，松鼠相信你！</p>
+              <button id="restartButton" class="primary-button" type="button">再玩一次 <span aria-hidden="true">↻</span></button>
+            </div>
+          </div>
+          <div id="feedback" class="feedback" aria-hidden="true"></div>
+        </div>
+
+        <div class="touch-controls" aria-label="觸控移動按鈕">
+          <button id="leftButton" class="move-button" type="button" aria-label="向左移動">←</button>
+          <p><span>按住按鈕</span><br />移動籃子</p>
+          <button id="rightButton" class="move-button" type="button" aria-label="向右移動">→</button>
+        </div>
+        <p id="liveStatus" class="sr-only" role="status" aria-live="polite">遊戲尚未開始。你有三顆心。</p>
+      </section>
+
+      <footer>
+        <span aria-hidden="true">✦</span>
+        <p>一顆蘋果一分・漏接蘋果或接到栗子會失去一顆心</p>
+        <span aria-hidden="true">✦</span>
+      </footer>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
